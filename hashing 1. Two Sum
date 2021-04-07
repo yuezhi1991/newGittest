@@ -1,0 +1,12 @@
+class Solution(object):
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        map_dic=dict()
+        for i, item in enumerate(nums): 
+            if (target-item) not in map_dic:
+                map_dic[item]=i
+            else: return([map_dic[target-item],i])
