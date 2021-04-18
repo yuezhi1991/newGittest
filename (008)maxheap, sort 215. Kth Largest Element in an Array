@@ -1,0 +1,16 @@
+import heapq;
+
+class Solution(object):
+    def findKthLargest(self, nums, k):
+        len_reverse=len(nums)
+        reverse_k=len_reverse-k+1
+        heapq.heapify(nums)
+        if reverse_k==1:
+            return heapq.heappop(nums)
+        elif(reverse_k>=2):
+            for i in range(reverse_k-1):
+                heapq.heappop(nums)
+            return heapq.heappop(nums)
+            
+
+        
