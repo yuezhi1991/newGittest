@@ -1,0 +1,10 @@
+class Solution(object):
+    def isAnagram(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        temp_s=sorted(list(s))
+        temp_t=sorted(list(t))
+        return(temp_s==temp_t)
