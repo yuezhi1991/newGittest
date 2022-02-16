@@ -1,0 +1,41 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+ /*** 方法一：In Order Traversal 
+ 方法二也是中序遍历 或iterative递归 https://blog.csdn.net/happyaaaaaaaaaaa/article/details/51487999***/
+class Solution {
+    private int count=0;
+    private int val;
+    public int kthSmallest(TreeNode root, int k) {
+        inOrder(root,k);
+        return val;
+            
+        }
+        
+    
+    
+    private void inOrder(TreeNode root, int k){
+        if(root==null) return;
+        inOrder(root.left,k);
+        count++;
+        if(count==k){
+            val=root.val;
+            return;
+        }
+        inOrder(root.right,k);
+        
+        
+    }
+}
