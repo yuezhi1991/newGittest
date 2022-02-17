@@ -1,0 +1,43 @@
+/* 树的递归
+问题转化：对每个节点，计算左深度+右深度的值，就是经过该节点的最长path的edge数。
+那如果对每个节点都得到过这个值，并且和全局变量打擂台，那就得到答案了呀。经过某个节点得到的最长path对应的长度就被存储在全局变量里了。
+递归函数返回当前节点的深度给父亲用。递归函数内借助孩子打擂台。 
+https://codeantenna.com/a/kUApBZOZpM
+There is a "Tree Visualizer" slider in the Testcase tab that can let you see the tree right in the code window. The tree is valid. leectode does not add extra nulls 
+for what would be children of null nodes. The main issue with your code is that you aren't storing the max, you are simply returning what would be the max of the root node (4).
+In this example the longest path does not go through the root node (4). Instead the root of this example is -9. You need to keep track of the max in a global or as an input 
+parameter for each possible root.
+
+https://leetcode.com/problems/diameter-of-binary-tree/discuss/1591983/Is-this-even-a-valid-tree
+*/
+
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private int maxlen;
+    public int diameterOfBinaryTree(TreeNode root) {
+        height(root);
+        return maxlen;
+        
+    }
+    private int height(TreeNode node){
+        if(node==null) return 0;
+        int l=height(node.left);
+        int r=height(node.right);
+        maxlen=Math.max(maxlen,l+r);
+        return 1+Math.max(l,r);}
+    
+}
