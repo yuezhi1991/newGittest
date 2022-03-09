@@ -11,7 +11,7 @@
  /*Interative */
 class Solution {
     public ListNode reverseList(ListNode head) {
-        ListNode p1=null;
+        ListNode p1=null;                  /*易错处，原本写为  ListNode p1=head; */
         ListNode p2=head;
         ListNode temp;
         while(p2!=null){
@@ -26,7 +26,7 @@ class Solution {
  /*Recursive */
 class Solution {
     public ListNode reverseList(ListNode head) {
-        if(head==null || head.next==null) return head;
+        if(head==null || head.next==null) return head; /*易错处，原本写为 if( head.next==null) */
         ListNode temp=reverseList(head.next);
         head.next.next=head;
         head.next=null;
