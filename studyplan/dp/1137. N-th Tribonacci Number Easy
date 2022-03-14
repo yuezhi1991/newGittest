@@ -1,0 +1,21 @@
+/**** Brute force, not best, breach time limit, should store intermediate value ***/
+
+class Solution {
+    public int tribonacci(int n) {
+        if(n==0 || n==1) return n;
+        if(n==2) return 1;
+        return tribonacci(n-3)+tribonacci(n-2)+tribonacci(n-1);
+    }
+}
+
+/*below is correct **/ /**Note without 赋值 int array 就是0 */
+class Solution {
+    int[] store_values=new int[38];
+    
+    public int tribonacci(int n) {
+        if(n==0 || n==1) return n;
+        if(n==2) return 1;
+        if(store_values[n]!=0) return store_values[n];
+        return store_values[n]=tribonacci(n-3)+tribonacci(n-2)+tribonacci(n-1);
+    }
+}
