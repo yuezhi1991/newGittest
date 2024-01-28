@@ -1,0 +1,28 @@
+//Iterative Approach
+//https://leetcode.com/problems/swap-nodes-in-pairs/solutions/753660/java-recursive-and-iterative-solution-clear
+class Solution {
+    public ListNode swapPairs(ListNode head) {
+        if (head==null || head.next==null){
+            return head;
+        }
+        ListNode ans=new ListNode(0);
+        ans.next=head;
+
+        ListNode pointer1=head;
+        ListNode pointer2=ans;
+
+        while(pointer1!=null && pointer1.next!=null){
+            ListNode next=pointer1.next;
+            pointer1.next=next.next;
+            next.next=pointer1;
+
+            pointer2.next=next;
+            pointer2=pointer1;
+            pointer1=pointer1.next;
+        }
+        return ans.next;
+    }
+}
+
+
+//Recursive Approach
