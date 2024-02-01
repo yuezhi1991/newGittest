@@ -54,3 +54,5 @@ class Solution {
 }
 
 //no reverse
+//https://leetcode.com/problems/add-two-numbers-ii/solutions/3776104/java-solution-using-stack
+//https://leetcode.com/problems/add-two-numbers-ii/solutions/3777169/follow-up-question-without-reversing-using-stack
